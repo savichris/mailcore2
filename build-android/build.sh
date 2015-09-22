@@ -2,7 +2,8 @@
 
 build_version=1
 ANDROID_PLATFORM=android-21
-archs="armeabi armeabi-v7a x86 x86_64"
+#archs="armeabi armeabi-v7a x86 x86_64"
+archs="armeabi-v7a"
 package_name=mailcore2-android
 ctemplate_build_version=1
 cyrus_sasl_build_version=1
@@ -49,7 +50,7 @@ function build {
         LIBETPAN_PATH=$current_dir/third-party/libetpan-android-1 \
         LIBXML2_PATH=$current_dir/third-party/libxml2-android-1 \
         TIDY_HTML5_PATH=$current_dir/third-party/tidy-html5-android-1 \
-        OPENSSL_PATH=$current_dir/third-party/openssl-android-1 \
+        OPENSSL_PATH=/usr/local/openssl_fips/android-14 \
         CYRUS_SASL_PATH=$current_dir/third-party/cyrus-sasl-android-1
 
     mkdir -p "$current_dir/bin/jni/$TARGET_ARCH_ABI"
@@ -73,7 +74,7 @@ download_dep "icu4c-android" $icu4c_build_version
 download_dep "libetpan-android" $libetpan_build_version
 download_dep "libxml2-android" $libxml2_build_version
 download_dep "tidy-html5-android" $tidy_html5_build_version
-download_dep "openssl-android" $openssl_build_version
+#download_dep "openssl-android" $openssl_build_version
 download_dep "cyrus-sasl-android" $cyrus_sasl_build_version
 
 # Start building.
